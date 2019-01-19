@@ -10,20 +10,24 @@ module.exports = function (sequelize, DataTypes) {
     model: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: [1, 10]
+      len: [1, 20]
     },
     year: {
       type: DataTypes.INTEGER,
       isDate: true,
       defaultValue: null,
-      len: [1, 10]
+      len: [4, 10]
     },
     color: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: [1, 10]
+      len: [1]
     },
-
+    photo: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
     description: {
       type: DataTypes.TEXT,
       notEmpty: true
