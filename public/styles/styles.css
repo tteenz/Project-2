@@ -1,3 +1,33 @@
 .list-group-item {
   line-height: 2.5;
 }
+/* Fonts 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Exo', sans-serif;
+font-family: 'Black Ops One', cursive; 
+font-family: 'Bungee Inline', cursive; 
+font-family: 'Chonburi', cursive;*/
+
+body {
+  background-color: #eaecee;
+}
+.jumbotron-fluid {
+  padding-left: 5%;
+  margin-bottom: 0;
+  background-color: #eaecee;
+
+}
+
+.navbar {
+  margin-bottom: 25px;
+}
+h1 {
+  font-family: 'Black Ops One', cursive; 
+  color: #F2AF29;
+}
+
+p {
+  font-family: 'Exo', sans-serif;
+  color: #000000;
+
+}
