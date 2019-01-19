@@ -4,7 +4,7 @@ module.exports = function(sequelize, Datatypes) {
   });
   Customer.associate = function(models) {
     Customer.hasMany(models.Cars, {
-      onDelete: "cascade"
+      onDelete: "CASCADE"
     });
   };
 
