@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const Cars = sequelize.define("Cars", {
     make: {
       type: DataTypes.STRING,
@@ -34,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Cars.associate = function (models) {
+  Cars.associate = function(models) {
     Cars.belongsTo(models.Customers, {
       foreignKey: {
         allowNull: false
