@@ -5,7 +5,6 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     db.Cars.findAll({}).then(function (dbCar) {
       res.render("index", {
-        msg: "Welcome to CarTech!",
         car: dbCar
       });
     });
