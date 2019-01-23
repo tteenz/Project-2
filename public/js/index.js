@@ -4,6 +4,7 @@ var $carsModel = $("#model");
 var $carsYear = $("#year");
 var $carsColor = $("#color");
 var $carsDescription = $("#description");
+var $carsPhoto = $("#photo");
 var $submitBtn = $("#submit");
 var $carsList = $("#cars-list");
 
@@ -78,10 +79,11 @@ var handleFormSubmit = function (event) {
     model: $carsModel.val().trim(),
     year: $carsYear.val().trim(),
     color: $carsColor.val().trim(),
-    description: $carsDescription.val().trim()
+    description: $carsDescription.val().trim(),
+    photo: $carsPhoto.val().trim(),
   };
 
-  if (!(cars.make && cars.model && cars.year && cars.color && cars.description)) {
+  if (!(cars.make && cars.model && cars.year && cars.color && cars.description && cars.photo)) {
     alert("You must enter your vehicle description!");
     return;
   }
@@ -95,6 +97,7 @@ var handleFormSubmit = function (event) {
   $carsYear.val("");
   $carsColor.val("");
   $carsDescription.val("");
+  $carsPhoto.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

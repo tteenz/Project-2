@@ -1,3 +1,10 @@
+  <div class="jumbotron jumbotron-fluid">
+    <h1 class="display-4"><a href="/">CarTech</a></h1>
+    <p class="lead">Post a car you wish to sell</p>
+    <hr class="my-4">
+  </div>
+
+
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
@@ -19,8 +26,12 @@
             <input type="text" id="color" class="form-control" aria-describedby="cars-text" placeholder="Red, white, etc.">
           </div>
           <div class="form-group">
-            <label for="cars-description">Cars Description</label>
+            <label for="cars-description">Description</label>
             <textarea class="form-control" id="description" aria-describedby="cars-description" placeholder="Enter Car Description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="cars-description">Photo</label>
+            <textarea class="form-control" id="photo" aria-describedby="cars-description" placeholder="Enter the URL of a photo of your car"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>

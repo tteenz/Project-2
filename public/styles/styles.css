@@ -29,5 +29,9 @@ h1 {
 p {
   font-family: 'Exo', sans-serif;
   color: #000000;
+}
 
+a {
+  font-family: 'Black Ops One', cursive; 
+  color: #F2AF29;
 }
