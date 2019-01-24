@@ -41,7 +41,7 @@ var refreshCar = function () {
       var $a = $("<a>")
         .make(cars.make)
         .model(cars.model)
-        .year(cars.model)
+        .year(cars.year)
         // .color(cars.color)
         .attr("href", "/cars/" + cars.id);
 
@@ -88,7 +88,7 @@ var handleFormSubmit = function (event) {
     return;
   }
 
-  API.saveCars(cars).then(function () {
+  API.saveCars(cars).then(function() {
     refreshCar();
   });
 
