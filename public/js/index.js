@@ -10,7 +10,7 @@ var $carsList = $("#cars-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveCars: function (cars) {
+  saveCars: function(cars) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -40,8 +40,8 @@ var refreshCar = function () {
     var $car = data.map(function (cars) {
       var $a = $("<a>")
         .make(cars.make)
-        // .model(cars.model)
-        // .year(cars.model)
+        .model(cars.model)
+        .year(cars.model)
         // .color(cars.color)
         .attr("href", "/cars/" + cars.id);
 
