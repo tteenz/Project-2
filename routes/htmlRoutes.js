@@ -7,10 +7,9 @@ module.exports = function (app) {
     });
   });
 
-  // Load buy car page
+  // Load ID car page
   app.get("/cars/:id", function (req, res) {
-    // db.Cars.findOne({ where: { id: req.params.id } }).then(function (dbCars) {
-      db.Cars.findAll({}).then(function (dbCars) {
+    db.Cars.findOne({ where: { id: req.params.id } }).then(function (dbCars) {
       res.render("cars", {
         cars: dbCars
       });
