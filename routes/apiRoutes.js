@@ -9,22 +9,20 @@ module.exports = function(app) {
       res.json(dbCar);
     });
   });
-  app.get("/api/cars", function(req, res) {
-    res.json({ hello: "hello" });
-  });
 
   // Create a new cars
-
+  // fix the customer part
   app.post("/api/car", function(req, res) {
     db.Cars.create(
-      ["make", "model", "year", "color", "description", "photo"],
+      ["make", "model", "year", "color", "description", "photo", ""],
       [
         req.body.make,
         req.body.model,
         req.body.year,
         req.body.color,
         req.body.description,
-        req.body.photo
+        req.body.photo,
+        req.body.customer
       ]
     ).then(function(dbCars) {
       res.json({ id: dbCars.Id });
