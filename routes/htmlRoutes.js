@@ -3,11 +3,11 @@ var db = require("../models");
 module.exports = function (app) {
   // Load index page
   app.get("/", function (req, res) {
-    db.Cars.findAll({}).then(function (dbCar) {
+    db.Cars.findAll({}).then(function(dbCar) {
       res.render("index", {
         car: dbCar
       });
-    });
+    });  
   });
 
   // Load example page and pass in an example by id
