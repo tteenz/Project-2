@@ -9,32 +9,15 @@ module.exports = function(app) {
       res.json(dbCar);
     });
   });
-  app.get("/api/cars", function(req, res) {
-    res.json({ hello: "hello" });
-  });
+  // app.get("/api/cars", function(req, res) {
+  //   res.json({ hello: "hello" });
+  // });
 
   // Create a new cars
-<<<<<<< HEAD
-  app.post("/api/car", function (req, res) {
-    db.Cars.create(req.body).then(function (dbCars) {
-      console.log("Car", req.body);
-      res.json(dbCars);
-=======
-
   app.post("/api/car", function(req, res) {
-    db.Cars.create(
-      ["make", "model", "year", "color", "description", "photo"],
-      [
-        req.body.make,
-        req.body.model,
-        req.body.year,
-        req.body.color,
-        req.body.description,
-        req.body.photo
-      ]
-    ).then(function(dbCars) {
-      res.json({ id: dbCars.Id });
->>>>>>> e9ccd38559481f08f3eb1af1c8406c898aeb453e
+    db.Cars.create(req.body).then(function(dbCars) {
+      res.json(dbCars);
+      console.log("API Cars", req.body);
     });
   });
 

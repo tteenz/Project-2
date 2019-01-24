@@ -40,8 +40,8 @@ var refreshCar = function () {
     var $car = data.map(function (cars) {
       var $a = $("<a>")
         .make(cars.make)
-        .model(cars.model)
-        .year(cars.model)
+        // .model(cars.model)
+        // .year(cars.model)
         // .color(cars.color)
         .attr("href", "/cars/" + cars.id);
 

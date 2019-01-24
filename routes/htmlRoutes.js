@@ -19,8 +19,10 @@ module.exports = function(app) {
 
   //Load add car page
   app.get("/add", function(req, res) {
+    db.Cars.findAll({where: { id: req.params.id } }).then(function(dbCars) {
     res.render("add");
   });
+});
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
