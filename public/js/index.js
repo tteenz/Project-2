@@ -42,7 +42,6 @@ var refreshCar = function () {
         .make(cars.make)
         .model(cars.model)
         .year(cars.year)
-        // .color(cars.color)
         .attr("href", "/cars/" + cars.id);
 
       var $li = $("<li>")
@@ -55,9 +54,8 @@ var refreshCar = function () {
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
         .make("ｘ")
-      // .model("x")
-      // .year("x")
-      // .color("x");
+        .model("x")
+        .year("x")
 
       $li.append($button);
 

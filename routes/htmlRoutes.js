@@ -1,27 +1,29 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  // Load index page
+  // Load home page
   app.get("/", function (req, res) {
-    db.Cars.findAll({}).then(function(dbCar) {
-      res.render("index", {
-        car: dbCar
-      });
-    });  
+    res.render("index", {
+    });
   });
 
-  // Load example page and pass in an example by id
+  // Load buy car page
   app.get("/cars/:id", function (req, res) {
-    db.Cars.findOne({ where: { id: req.params.id } }).then(function (dbCars) {
+    // db.Cars.findOne({ where: { id: req.params.id } }).then(function (dbCars) {
+      db.Cars.findAll({}).then(function (dbCars) {
       res.render("cars", {
         cars: dbCars
       });
     });
   });
 
-  //Load add car page
+  //Load sell car page
   app.get("/add", function (req, res) {
-    res.render("add");
+    db.Cars.findAll({}).then(function (dbCar) {
+      res.render("add", {
+        car: dbCar
+      });
+    });
   });
 
   // Render 404 page for any unmatched routes

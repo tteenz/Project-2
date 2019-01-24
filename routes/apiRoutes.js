@@ -10,9 +10,6 @@ module.exports = function (app) {
       res.json(dbCar);
     });
   });
-  // app.get("/api/cars", function(req, res) {
-  //   res.json({ hello: "hello" });
-  // });
 
   // Create a new cars
   app.post("/api/car", function(req, res) {
