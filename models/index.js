@@ -10,6 +10,13 @@ var db = {};
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
+  var opts = {
+    define: {
+        //prevent sequelize from pluralizing table names
+        freezeTableName: true
+    }
+}
+
 } else {
   var sequelize = new Sequelize(
     config.database,

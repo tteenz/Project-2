@@ -88,7 +88,7 @@ var handleFormSubmit = function (event) {
     return;
   }
 
-  API.saveCars(cars).then(function () {
+  API.saveCars(cars).then(function() {
     refreshCar();
   });
 

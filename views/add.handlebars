@@ -39,7 +39,7 @@
         <ul id="cars-list" class="list-group">
           {{#each car}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="cars/{{this.id}}">{{this.year}}{{this.make}}{{this.model}}</a>
+            <a href="cars/{{this.id}}">{{this.make}}</a>
             <button class="btn btn-danger float-right delete">x</button>
           </li>
           {{/each}}

@@ -13,6 +13,7 @@ module.exports = function (app) {
   // Create a new cars
   app.post("/api/car", function (req, res) {
     db.Cars.create(req.body).then(function (dbCars) {
+      console.log("Car", req.body);
       res.json(dbCars);
     });
   });
