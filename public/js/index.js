@@ -88,6 +88,8 @@ var handleFormSubmit = function (event) {
 
 API.saveCars(cars).then(function () {
   refreshCar();
+
+alert("Congratulations! Your car has been posted for sale.");  
 });
 
 $carsMake.val("");
