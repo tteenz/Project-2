@@ -1,0 +1,2 @@
+INSERT INTO Cars (make, model, year, color, photo, description) VALUES ('McLaren', '600LT', 2020, 'White', 'https://66.media.tumblr.com/90ad708a360d7fe03aa8480059f30c46/tumblr_pk8e2yNJ3D1votm1fo1_1280.jpg', 'Brand new and super fast!');
+INSERT INTO Cars (make, model, year, color, photo, description) VALUES ('Audi', 'R8', 2019, 'Black', 'https://66.media.tumblr.com/c7ddfe49671cbd0f784a929af9125329/tumblr_osqtzmoL0e1rsezm9o1_1280.jpg', 'Matte black with black interiors. Nice and clean.');

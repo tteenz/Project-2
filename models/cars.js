@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Cars = sequelize.define("Cars", {
     make: {
       type: DataTypes.STRING,
@@ -30,9 +30,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     description: {
       type: DataTypes.TEXT,
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
+
+}, {
+  timestamps: false
   });
+return Cars;
+};
 
   // Cars.associate = function(models) {
   //   Cars.belongsTo(models.Customers, {
@@ -41,5 +46,3 @@ module.exports = function(sequelize, DataTypes) {
   //     }
   //   });
   // };
-  return Cars;
-};
