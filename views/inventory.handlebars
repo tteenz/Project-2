@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid">
+  <h1 class="display-4"><a href="/">CarTech</a></h1>
+  <p class="lead">Browse our inventory and see what you like</p>
+  <hr class="my-4">
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3>Cars:</h3>
+      <ul id="cars-list" class="list-group">
+        {{#each car}}
+        <li data-id="{{this.id}}" class="list-group-item">
+          <a href="cars/{{this.id}}">{{this.year}} {{this.make}} {{this.model}}</a>
+          <button class="btn btn-danger float-right delete">x</button>
+        </li>
+        {{/each}}
+      </ul>
+      </br>
+      <a href="/">← Back To Home</a>
+    </div>
+  </div>
+</div>

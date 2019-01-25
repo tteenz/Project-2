@@ -10,7 +10,7 @@ var $carsList = $("#cars-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveCars: function(cars) {
+  saveCars: function (cars) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -40,9 +40,8 @@ var refreshCar = function () {
     var $car = data.map(function (cars) {
       var $a = $("<a>")
         .make(cars.make)
-        // .model(cars.model)
-        // .year(cars.model)
-        // .color(cars.color)
+        .model(cars.model)
+        .year(cars.year)
         .attr("href", "/cars/" + cars.id);
 
       var $li = $("<li>")
@@ -55,9 +54,8 @@ var refreshCar = function () {
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
         .make("ｘ")
-      // .model("x")
-      // .year("x")
-      // .color("x");
+        .model("x")
+        .year("x")
 
       $li.append($button);
 
@@ -85,19 +83,19 @@ var handleFormSubmit = function (event) {
 
   if (!(cars.make && cars.model && cars.year && cars.color && cars.description && cars.photo)) {
     alert("You must enter your vehicle description!");
-    return;
+  return;
   }
 
-  API.saveCars(cars).then(function() {
-    refreshCar();
-  });
+API.saveCars(cars).then(function () {
+  refreshCar();
+});
 
-  $carsMake.val("");
-  $carsModel.val("");
-  $carsYear.val("");
-  $carsColor.val("");
-  $carsDescription.val("");
-  $carsPhoto.val("");
+$carsMake.val("");
+$carsModel.val("");
+$carsYear.val("");
+$carsColor.val("");
+$carsDescription.val("");
+$carsPhoto.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
