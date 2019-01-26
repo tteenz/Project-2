@@ -38,16 +38,17 @@ module.exports = function (sequelize, DataTypes) {
       timestamps: false
     });
 
-
-  return Cars;
-};
-
-
-
-  // Cars.associate = function(models) {
+  // Cars.associate = function (models) {
   //   Cars.belongsTo(models.Customers, {
   //     foreignKey: {
   //       allowNull: false
   //     }
   //   });
   // };
+
+  return Cars;
+};
+
+
+
+

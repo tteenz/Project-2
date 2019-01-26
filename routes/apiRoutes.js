@@ -25,20 +25,20 @@ module.exports = function (app) {
   //   });
   // })
 
-  app.get("/inventory", function (req, res) {
-    db.Cars.create({
-      make: 'Audi',
-      model: 'R8',
-      year: 2019,
-      color: 'Black',
-      photo: 'https://66.media.tumblr.com/c7ddfe49671cbd0f784a929af9125329/tumblr_osqtzmoL0e1rsezm9o1_1280.jpg',
-      description: 'Matte black with black interiors. Nice and clean.'
-    }).then(function (dbCar) {
-      res.render("inventory", {
-        car:dbCar
-      });
-    });
-  })
+  // app.get("/inventory", function (req, res) {
+  //   db.Cars.create({
+  //     make: 'Audi',
+  //     model: 'R8',
+  //     year: 2019,
+  //     color: 'Black',
+  //     photo: 'https://66.media.tumblr.com/c7ddfe49671cbd0f784a929af9125329/tumblr_osqtzmoL0e1rsezm9o1_1280.jpg',
+  //     description: 'Matte black with black interiors. Nice and clean.'
+  //   }).then(function (dbCar) {
+  //     res.render("inventory", {
+  //       car:dbCar
+  //     });
+  //   });
+  // })
 
 
 
