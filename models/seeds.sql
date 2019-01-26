@@ -1,3 +1,5 @@
-INSERT INTO Cars (make, model, year, color, photo, description) VALUES ('McLaren', '600LT', 2020, 'White', 'https://66.media.tumblr.com/90ad708a360d7fe03aa8480059f30c46/tumblr_pk8e2yNJ3D1votm1fo1_1280.jpg', 'Brand new and super fast!');
-INSERT INTO Cars (make, model, year, color, photo, description) VALUES ('Audi', 'R8', 2019, 'Black', 'https://66.media.tumblr.com/c7ddfe49671cbd0f784a929af9125329/tumblr_osqtzmoL0e1rsezm9o1_1280.jpg', 'Matte black with black interiors. Nice and clean.');
-INSERT INTO Cars (make, model, year, color, photo, description) VALUES ('Toyota', 'Supra', 2020, 'Red', 'https://66.media.tumblr.com/a94fa1d2f813f6b5bdddb55a83a716cb/tumblr_pldq4wRGsc1tcepd9o1_540.jpg', 'Like new coupe, ready for its new owner.');
+INSERT INTO Cars (make, model, year, color, photo, description, name, email, price) VALUES ('McLaren', '600LT', 2020, 'White', 'https://66.media.tumblr.com/90ad708a360d7fe03aa8480059f30c46/tumblr_pk8e2yNJ3D1votm1fo1_1280.jpg', 'Brand new and super fast!', 'Teenz', 'titr8714@stu.evc.edu', '600,000');
+INSERT INTO Cars (make, model, year, color, photo, description, name, email, price) VALUES ('Audi', 'R8', 2019, 'Black', 'https://66.media.tumblr.com/c7ddfe49671cbd0f784a929af9125329/tumblr_osqtzmoL0e1rsezm9o1_1280.jpg', 'Matte black with black interiors. Nice and clean.', 'Eli', 'elib@gmail.com', '120,000');
+INSERT INTO Cars (make, model, year, color, photo, description, name, email, price) VALUES ('Toyota', 'Supra', 2020, 'Red', 'https://66.media.tumblr.com/a94fa1d2f813f6b5bdddb55a83a716cb/tumblr_pldq4wRGsc1tcepd9o1_540.jpg', 'Like new coupe, ready for its new owner.', 'Sean', 'sean@gmail.com', '50,000');
+
+USE ja0wf6xtgmukn73q

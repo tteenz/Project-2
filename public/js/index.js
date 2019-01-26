@@ -13,6 +13,7 @@ var $carsList = $("#cars-list");
 let $submitLogin = $("#submit-login");
 var $loginList = $("#login-list");
 var $login = $("#login");
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveCars: function (cars) {
@@ -154,7 +155,10 @@ var handleFormSubmit = function(event) {
       cars.year &&
       cars.color &&
       cars.description &&
-      cars.photo 
+      cars.photo &&
+      cars.name &&
+      cars.email &&
+      cars.price 
     )
   ) {
     alert("You must enter your vehicle description!");
