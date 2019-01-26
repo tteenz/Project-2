@@ -7,7 +7,16 @@ module.exports = function(app) {
       res.render("index");
     });
   });
-
+  //load login page
+  app.get("/login", (req, res) => {
+    db.Customers.findAll({}).then(function(dbCustomer) {
+      res.render(
+        "login",
+        { customers: dbCustomer }
+        //
+      );
+    });
+  });
   // Load example page and pass in an example by id
   app.get("/cars/:id", function(req, res) {
     db.Cars.findOne({ where: { id: req.params.id } }).then(function(dbCars) {

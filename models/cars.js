@@ -34,12 +34,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // Cars.associate = function(models) {
-  //   Cars.belongsTo(models.Customers, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Cars.associate = function(models) {
+    Cars.belongsTo(models.Customers, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Cars;
 };

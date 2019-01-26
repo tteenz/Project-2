@@ -1,4 +1,4 @@
-var db = require("../models");
+const db = require("../models");
 
 module.exports = function(app) {
   // Get all cars
@@ -13,8 +13,9 @@ module.exports = function(app) {
   // Create a new cars
   // fix the customer part
   app.post("/api/car", function(req, res) {
-    db.Cars.create(
-      ["make", "model", "year", "color", "description", "photo", ""],
+    db.Cars.create[
+      ("make", "model", "year", "color", "description", "photo", "customerId")
+    ],
       [
         req.body.make,
         req.body.model,
@@ -22,11 +23,10 @@ module.exports = function(app) {
         req.body.color,
         req.body.description,
         req.body.photo,
-        req.body.customer
-      ]
-    ).then(function(dbCars) {
-      res.json({ id: dbCars.Id });
-    });
+        req.body.customerId
+      ]().then(function(dbCars) {
+        res.json({ id: dbCars.Id });
+      });
   });
 
   // Delete a car by id
@@ -37,14 +37,14 @@ module.exports = function(app) {
   });
 
   // // Get all customers
-  app.get("/api/customer", function(req, res) {
-    db.Customers.findAll({}).then(function(dbCustomers) {
-      res.json(dbCustomers);
-    });
-  });
+  // app.get("/login", function(req, res) {
+  //   db.Customers.findAll({}).then(function(dbCustomers) {
+  //     res.json(dbCustomers);
+  //   });
+  // });
 
   // Create a new customer
-  app.post("/api/customer", function(req, res) {
+  app.post("/login", function(req, res) {
     db.Customers.create(req.body).then(function(dbCustomers) {
       res.json(dbCustomers);
     });
