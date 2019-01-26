@@ -1,8 +1,10 @@
 require("dotenv").config();
 var express = require("express");
+const router = express.Router();
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
+const userController = require("./controllers/userController");
 
 var app = express();
 var PORT = process.env.PORT || 3131;
@@ -22,6 +24,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+router.get("/user", userController.userForm);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
