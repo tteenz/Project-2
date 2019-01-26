@@ -26,13 +26,13 @@ var API = {
       data: JSON.stringify(cars)
     });
   },
-  getCar: function() {
+  getCar: function () {
     return $.ajax({
       url: "api/car",
       type: "GET"
     });
   },
-  deleteCars: function(id) {
+  deleteCars: function (id) {
     return $.ajax({
       url: "api/car/" + id,
       type: "DELETE"
@@ -42,7 +42,7 @@ var API = {
 
 //////------  NEW FOR LOGIN
 var LoginAPI = {
-  saveLogin: function(logins) {
+  saveLogin: function (logins) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -52,13 +52,13 @@ var LoginAPI = {
       data: JSON.stringify(logins)
     });
   },
-  getLogin: function() {
+  getLogin: function () {
     return $.ajax({
       url: "/login",
       type: "GET"
     });
   },
-  deleteLogin: function(id) {
+  deleteLogin: function (id) {
     return $.ajax({
       url: "/login/" + id,
       type: "DELETE"
@@ -67,9 +67,9 @@ var LoginAPI = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshCar = function() {
-  API.getCar().then(function(data) {
-    var $car = data.map(function(cars) {
+var refreshCar = function () {
+  API.getCar().then(function (data) {
+    var $car = data.map(function (cars) {
       var $a = $("<a>")
         .make(cars.make)
         .model(cars.model)
@@ -99,9 +99,9 @@ var refreshCar = function() {
   });
 };
 // refreshExamples gets new logins from the db and repopulates the list
-var refreshLogin = function() {
-  LoginAPI.getLogin().then(function(data) {
-    var $login = data.map(function(login) {
+var refreshLogin = function () {
+  LoginAPI.getLogin().then(function (data) {
+    var $login = data.map(function (login) {
       var $a = $("<a>")
         .customerName(login.customerName)
 
@@ -133,7 +133,7 @@ var refreshLogin = function() {
 };
 // handleFormSubmit is called whenever we submit new cars
 // Save new cars to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var cars = {
@@ -158,18 +158,32 @@ var handleFormSubmit = function(event) {
       cars.photo &&
       cars.name &&
       cars.email &&
-      cars.price 
+      cars.price
     )
   ) {
     alert("You must enter your vehicle description!");
+
   return;
-  }
+  
+}
+
+
 
 API.saveCars(cars).then(function () {
   refreshCar();
 
-alert("Congratulations! Your car has been posted for sale.");  
+if(confirm("Congratulations! Your car has been posted for sale. Do you want to view our inventory?")) {
+  window.location = "/inventory";
+}
+else {
+  window.location = "/cars/:id";
+}
+
+
+
+
 });
+
 
 $carsMake.val("");
 $carsModel.val("");
@@ -182,8 +196,9 @@ $carsEmail.val("");
 $carsPrice.val("");
 
 };
+
 //////////////////////---------------   NEW LOGIN
-var handleLoginSubmit = function(e) {
+var handleLoginSubmit = function (e) {
   e.preventDefault();
 
   let login = {
@@ -194,7 +209,7 @@ var handleLoginSubmit = function(e) {
     return;
   }
 
-  LoginAPI.saveLogin(login).then(function() {
+  LoginAPI.saveLogin(login).then(function () {
     refreshLogin();
   });
 
@@ -217,5 +232,5 @@ var handleLoginSubmit = function(e) {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$carsList.on("click", ".delete", handleDeleteBtnClick);
+// $carsList.on("click", ".delete", handleDeleteBtnClick);
 $submitLogin.on("click", handleLoginSubmit);
