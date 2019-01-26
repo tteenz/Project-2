@@ -83,11 +83,11 @@ var refreshCar = function() {
         })
         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .make("ｘ")
-        .model("x")
-        .year("x")
+      // var $button = $("<button>")
+      //   .addClass("btn btn-danger float-right delete")
+      //   .make("ｘ")
+      //   .model("x")
+      //   .year("x")
 
       $li.append($button);
 
@@ -115,9 +115,9 @@ var refreshLogin = function() {
         })
         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .customerName("ｘ");
+      // var $button = $("<button>")
+      //   .addClass("btn btn-danger float-right delete")
+      //   .customerName("ｘ");
       // .model("x")
       // .year("x")
       // .color("x");
@@ -205,15 +205,15 @@ var handleLoginSubmit = function(e) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// var handleDeleteBtnClick = function() {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
 
-  API.deleteCars(idToDelete).then(function() {
-    refreshCar();
-  });
-};
+//   API.deleteCars(idToDelete).then(function() {
+//     refreshCar();
+//   });
+// };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
