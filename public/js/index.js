@@ -12,7 +12,7 @@ var $loginList = $("#login-list");
 var $login = $("#login");
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveCars: function(cars) {
+  saveCars: function (cars) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -69,8 +69,7 @@ var refreshCar = function() {
       var $a = $("<a>")
         .make(cars.make)
         .model(cars.model)
-        .year(cars.model)
-        // .color(cars.color)
+        .year(cars.year)
         .attr("href", "/cars/" + cars.id);
 
       var $li = $("<li>")
@@ -82,10 +81,9 @@ var refreshCar = function() {
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
-        .make("ｘ");
-      // .model("x")
-      // .year("x")
-      // .color("x");
+        .make("ｘ")
+        .model("x")
+        .year("x")
 
       $li.append($button);
 
@@ -154,19 +152,21 @@ var handleFormSubmit = function(event) {
     )
   ) {
     alert("You must enter your vehicle description!");
-    return;
+  return;
   }
 
-  API.saveCars(cars).then(function() {
-    refreshCar();
-  });
+API.saveCars(cars).then(function () {
+  refreshCar();
 
-  $carsMake.val("");
-  $carsModel.val("");
-  $carsYear.val("");
-  $carsColor.val("");
-  $carsDescription.val("");
-  $carsPhoto.val("");
+alert("Congratulations! Your car has been posted for sale.");  
+});
+
+$carsMake.val("");
+$carsModel.val("");
+$carsYear.val("");
+$carsColor.val("");
+$carsDescription.val("");
+$carsPhoto.val("");
 };
 //////////////////////---------------   NEW LOGIN
 var handleLoginSubmit = function(e) {
