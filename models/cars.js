@@ -33,7 +33,21 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       notEmpty: true,
     },
-
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    price: {
+      type: DataTypes.STRING,
+      defaultValue: null,
+      len: [4, 20]
+    },
   }, {
       timestamps: false
     });

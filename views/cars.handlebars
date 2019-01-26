@@ -11,12 +11,17 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Cars:</h5>
-          <p><strong>ID</strong>: {{cars.id}}</p>
+          {{!-- <p><strong>ID</strong>: {{cars.id}}</p> --}}
           <p><strong>Make</strong>: {{cars.make}}</p>
           <p><strong>Model</strong>: {{cars.model}}</p>
           <p><strong>Year</strong>: {{cars.year}}</p>
           <p><strong>Color</strong>: {{cars.color}}</p>
           <p><strong>Description</strong>: {{cars.description}}</p>
+          <p><strong>Seller Name</strong>: {{cars.name}}</p>
+          <p>
+          <strong>Seller Email</strong>:<a href="mailto:{{cars.email}}"> Click Here</a>
+          </p>
+          <p><strong>Price($)</strong>: {{cars.price}}</p>
           <p><strong>Photo</strong>:</p>
           <img src="{{cars.photo}}" alt="car" height="250">
           <br>

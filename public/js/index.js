@@ -5,6 +5,9 @@ var $carsYear = $("#year");
 var $carsColor = $("#color");
 var $carsDescription = $("#description");
 var $carsPhoto = $("#photo");
+var $carsName = $("#name");
+var $carsEmail = $("#email");
+var $carsPrice = $("#price")
 var $submitBtn = $("#submit");
 var $carsList = $("#cars-list");
 let $submitLogin = $("#submit-login");
@@ -138,7 +141,10 @@ var handleFormSubmit = function(event) {
     year: $carsYear.val().trim(),
     color: $carsColor.val().trim(),
     description: $carsDescription.val().trim(),
-    photo: $carsPhoto.val().trim()
+    photo: $carsPhoto.val().trim(),
+    name: $carsName.val().trim(),
+    email: $carsEmail.val().trim(),
+    price: $carsPrice.val().trim()
   };
 
   if (
@@ -148,7 +154,7 @@ var handleFormSubmit = function(event) {
       cars.year &&
       cars.color &&
       cars.description &&
-      cars.photo
+      cars.photo 
     )
   ) {
     alert("You must enter your vehicle description!");
@@ -167,6 +173,10 @@ $carsYear.val("");
 $carsColor.val("");
 $carsDescription.val("");
 $carsPhoto.val("");
+$carsName.val("");
+$carsEmail.val("");
+$carsPrice.val("");
+
 };
 //////////////////////---------------   NEW LOGIN
 var handleLoginSubmit = function(e) {
