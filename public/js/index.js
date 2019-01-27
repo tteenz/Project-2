@@ -13,6 +13,7 @@ var $carsList = $("#cars-list");
 let $submitLogin = $("#submit-login");
 var $loginList = $("#login-list");
 var $login = $("#login");
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveCars: function (cars) {
@@ -25,13 +26,13 @@ var API = {
       data: JSON.stringify(cars)
     });
   },
-  getCar: function() {
+  getCar: function () {
     return $.ajax({
       url: "api/car",
       type: "GET"
     });
   },
-  deleteCars: function(id) {
+  deleteCars: function (id) {
     return $.ajax({
       url: "api/car/" + id,
       type: "DELETE"
@@ -41,7 +42,7 @@ var API = {
 
 //////------  NEW FOR LOGIN
 var LoginAPI = {
-  saveLogin: function(logins) {
+  saveLogin: function (logins) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -51,13 +52,13 @@ var LoginAPI = {
       data: JSON.stringify(logins)
     });
   },
-  getLogin: function() {
+  getLogin: function () {
     return $.ajax({
       url: "/login",
       type: "GET"
     });
   },
-  deleteLogin: function(id) {
+  deleteLogin: function (id) {
     return $.ajax({
       url: "/login/" + id,
       type: "DELETE"
@@ -66,9 +67,9 @@ var LoginAPI = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshCar = function() {
-  API.getCar().then(function(data) {
-    var $car = data.map(function(cars) {
+var refreshCar = function () {
+  API.getCar().then(function (data) {
+    var $car = data.map(function (cars) {
       var $a = $("<a>")
         .make(cars.make)
         .model(cars.model)
@@ -97,10 +98,11 @@ var refreshCar = function() {
     $carsList.append($car);
   });
 };
+
 // refreshExamples gets new logins from the db and repopulates the list
-var refreshLogin = function() {
-  LoginAPI.getLogin().then(function(data) {
-    var $login = data.map(function(login) {
+var refreshLogin = function () {
+  LoginAPI.getLogin().then(function (data) {
+    var $login = data.map(function (login) {
       var $a = $("<a>")
         .customerName(login.customerName)
 
@@ -132,7 +134,7 @@ var refreshLogin = function() {
 };
 // handleFormSubmit is called whenever we submit new cars
 // Save new cars to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var cars = {
@@ -154,32 +156,30 @@ var handleFormSubmit = function(event) {
       cars.year &&
       cars.color &&
       cars.description &&
-      cars.photo 
+      cars.photo
     )
   ) {
     alert("You must enter your vehicle description!");
-  return;
+    return;
   }
 
-API.saveCars(cars).then(function () {
-  refreshCar();
+  API.saveCars(cars).then(function () {
+    refreshCar();
+  });
 
-alert("Congratulations! Your car has been posted for sale.");  
-});
-
-$carsMake.val("");
-$carsModel.val("");
-$carsYear.val("");
-$carsColor.val("");
-$carsDescription.val("");
-$carsPhoto.val("");
-$carsName.val("");
-$carsEmail.val("");
-$carsPrice.val("");
+  $carsMake.val("");
+  $carsModel.val("");
+  $carsYear.val("");
+  $carsColor.val("");
+  $carsDescription.val("");
+  $carsPhoto.val("");
+  $carsName.val("");
+  $carsEmail.val("");
+  $carsPrice.val("");
 
 };
 //////////////////////---------------   NEW LOGIN
-var handleLoginSubmit = function(e) {
+var handleLoginSubmit = function (e) {
   e.preventDefault();
 
   let login = {
@@ -190,7 +190,7 @@ var handleLoginSubmit = function(e) {
     return;
   }
 
-  LoginAPI.saveLogin(login).then(function() {
+  LoginAPI.saveLogin(login).then(function () {
     refreshLogin();
   });
 
@@ -201,12 +201,12 @@ var handleLoginSubmit = function(e) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteCars(idToDelete).then(function() {
+  API.deleteCars(idToDelete).then(function () {
     refreshCar();
   });
 };
