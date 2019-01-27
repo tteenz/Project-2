@@ -97,4 +97,8 @@ a {
   .container-fluid {
     display: flex;
   }
+
+  #box1.container {
+    display: contents;
+  }
 }
