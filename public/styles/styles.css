@@ -29,10 +29,13 @@ body {
 
 .card {
   display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
 .card-columns {
   column-count: 3;
+  display: inline-block;
 }
 
 .card-columns .card {
@@ -71,4 +74,11 @@ p {
 a {
   font-family: 'Black Ops One', cursive; 
   color: #F2AF29;
+}
+
+@media (max-width: 768px) { 
+  .card-columns {
+    flex-direction: column;
+    display: flex;
+  }
 }
