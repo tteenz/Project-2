@@ -23,7 +23,20 @@ body {
 }
 
 .container {
-  margin-top: 25px;
+  margin-top: 15px;
+  margin-left: 10%;
+}
+
+.card {
+  display: inline-block;
+}
+
+.card-columns {
+  column-count: 3;
+}
+
+.card-columns .card {
+  margin-bottom: 2rem;
 }
 
 h3 {
@@ -42,11 +55,17 @@ h1 {
   color: #820D16;
   font-family: 'Exo', sans-serif;
   font-size: 30px;
+  margin: 10px;
 
 }
 p {
   font-family: 'Exo', sans-serif;
   color: #000000;
+  margin: 0 10px 1rem 10px;
+}
+
+.btn-danger {
+  margin: 0 10px 10px 10px;
 }
 
 a {

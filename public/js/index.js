@@ -100,7 +100,6 @@ var refreshLogin = function () {
       var $a = $("<a>")
         .customerName(login.customerName)
 
-        // .color(cars.color)
         .attr("href", "/login/" + customers.id);
 
       var $li = $("<li>")
@@ -150,21 +149,18 @@ var handleFormSubmit = function (event) {
     )
   ) {
     alert("You must enter your vehicle description!");
-
     return;
-
   }
 
   API.saveCars(cars).then(function () {
     refreshCar();
 
-    if (confirm("Congratulations! Your car has been posted for sale. Click 'Okay' to see your post")) {
+    if (confirm("Congratulations! Your car has been posted for sale. Do you want to view our inventory?")) {
       window.location = "/inventory";
     }
     else {
-      window.location = "/inventory";
+      window.location = "/";
     }
-
   });
 
   $carsMake.val("");
@@ -197,7 +193,6 @@ var handleLoginSubmit = function (e) {
 
   $login.val("");
 };
-
 ///////////////--------------------------   NEW LOGIN
 
 // Add event listeners to the submit and delete buttons
