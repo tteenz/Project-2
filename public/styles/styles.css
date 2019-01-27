@@ -61,6 +61,12 @@ h1 {
   margin: 10px;
 
 }
+
+.container-fluid {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
 p {
   font-family: 'Exo', sans-serif;
   color: #000000;
@@ -79,6 +85,16 @@ a {
 @media (max-width: 768px) { 
   .card-columns {
     flex-direction: column;
+    display: flex;
+  }
+  .navbar-dark {
+    position: inherit;
+  }
+  .card {
+    display: flex;
+  }
+ 
+  .container-fluid {
     display: flex;
   }
 }
