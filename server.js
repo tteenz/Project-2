@@ -2,9 +2,10 @@ require("dotenv").config();
 var express = require("express");
 const router = express.Router();
 var exphbs = require("express-handlebars");
-
+let passport = require("passport");
+let session = require("express-session");
 var db = require("./models");
-const userController = require("./controllers/userController");
+//const userController = require("./controllers/userController");
 
 var app = express();
 var PORT = process.env.PORT || 3131;
@@ -13,6 +14,11 @@ var PORT = process.env.PORT || 3131;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+
+// PASSPORT
+app.use(session({ secret: "it works", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -23,10 +29,16 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// PASSPORT ROUTES
+require("./routes/auth")(app, passport);
+
 // Routes
-router.get("/user", userController.userForm);
+
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+
+// load passport strategies
+require("./config/passport/passport")(passport, db.user);
 
 var syncOptions = { force: true };
 
@@ -38,6 +50,7 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
+  console.log("Database is good");
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
