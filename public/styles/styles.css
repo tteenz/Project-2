@@ -22,6 +22,10 @@ body {
   font-size: 25px;
 }
 
+.container {
+  margin-top: 25px;
+}
+
 h3 {
   font-family: 'Exo', sans-serif;
   color: #820D16;

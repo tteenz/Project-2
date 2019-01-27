@@ -83,12 +83,6 @@ var refreshCar = function () {
         })
         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .make("ｘ")
-        .model("x")
-        .year("x")
-
       $li.append($button);
 
       return $li;
@@ -115,13 +109,6 @@ var refreshLogin = function () {
           "data-id": customers.id
         })
         .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .customerName("ｘ");
-      // .model("x")
-      // .year("x")
-      // .color("x");
 
       $li.append($button);
 
@@ -156,15 +143,28 @@ var handleFormSubmit = function (event) {
       cars.year &&
       cars.color &&
       cars.description &&
-      cars.photo
+      cars.photo &&
+      cars.name &&
+      cars.email &&
+      cars.price
     )
   ) {
     alert("You must enter your vehicle description!");
+
     return;
+
   }
 
   API.saveCars(cars).then(function () {
     refreshCar();
+
+    if (confirm("Congratulations! Your car has been posted for sale. Click 'Okay' to see your post")) {
+      window.location = "/inventory";
+    }
+    else {
+      window.location = "/inventory";
+    }
+
   });
 
   $carsMake.val("");
@@ -178,6 +178,7 @@ var handleFormSubmit = function (event) {
   $carsPrice.val("");
 
 };
+
 //////////////////////---------------   NEW LOGIN
 var handleLoginSubmit = function (e) {
   e.preventDefault();
@@ -199,19 +200,7 @@ var handleLoginSubmit = function (e) {
 
 ///////////////--------------------------   NEW LOGIN
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function () {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteCars(idToDelete).then(function () {
-    refreshCar();
-  });
-};
-
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$carsList.on("click", ".delete", handleDeleteBtnClick);
+// $carsList.on("click", ".delete", handleDeleteBtnClick);
 $submitLogin.on("click", handleLoginSubmit);
