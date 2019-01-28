@@ -80,6 +80,7 @@ a {
   .card-columns {
     flex-direction: column;
     display: flex;
+    column-count: 1;
   }
   .navbar-dark {
     position: inherit;
