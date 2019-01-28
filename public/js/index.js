@@ -152,15 +152,18 @@ var handleFormSubmit = function (event) {
     return;
   }
 
+  if (confirm("Congratulations! Your car has been posted for sale. Do you want to view our inventory?")) {
+    window.location = "/inventory";
+  }
+  else {
+    window.location = "/";
+  }
+
   API.saveCars(cars).then(function () {
     refreshCar();
 
-    if (confirm("Congratulations! Your car has been posted for sale. Do you want to view our inventory?")) {
-      window.location = "/inventory";
-    }
-    else {
-      window.location = "/";
-    }
+
+
   });
 
   $carsMake.val("");
