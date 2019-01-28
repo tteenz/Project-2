@@ -3,9 +3,7 @@ const db = require("../models");
 module.exports = function (app) {
   // Get all cars
   app.get("/api/car", function (req, res) {
-    db.Cars.findAll({
-      // include: [db.Customers]
-    }).then(function (dbCar) {
+    db.Cars.findAll({}).then(function (dbCar) {
       res.json(dbCar);
     });
   });
@@ -24,13 +22,6 @@ module.exports = function (app) {
       res.json(dbCars);
     });
   });
-
-  // // Get all customers
-  // app.get("/login", function(req, res) {
-  //   db.Customers.findAll({}).then(function(dbCustomers) {
-  //     res.json(dbCustomers);
-  //   });
-  // });
 
   // Create a new customer
   app.post("/login", function (req, res) {

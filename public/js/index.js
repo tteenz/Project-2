@@ -26,13 +26,13 @@ var API = {
       data: JSON.stringify(cars)
     });
   },
-  getCar: function() {
+  getCar: function () {
     return $.ajax({
       url: "api/car",
       type: "GET"
     });
   },
-  deleteCars: function(id) {
+  deleteCars: function (id) {
     return $.ajax({
       url: "api/car/" + id,
       type: "DELETE"
@@ -42,7 +42,7 @@ var API = {
 
 //////------  NEW FOR LOGIN
 var LoginAPI = {
-  saveLogin: function(logins) {
+  saveLogin: function (logins) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -52,13 +52,13 @@ var LoginAPI = {
       data: JSON.stringify(logins)
     });
   },
-  getLogin: function() {
+  getLogin: function () {
     return $.ajax({
       url: "/login",
       type: "GET"
     });
   },
-  deleteLogin: function(id) {
+  deleteLogin: function (id) {
     return $.ajax({
       url: "/login/" + id,
       type: "DELETE"
@@ -67,9 +67,9 @@ var LoginAPI = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshCar = function() {
-  API.getCar().then(function(data) {
-    var $car = data.map(function(cars) {
+var refreshCar = function () {
+  API.getCar().then(function (data) {
+    var $car = data.map(function (cars) {
       var $a = $("<a>")
         .make(cars.make)
         .model(cars.model)
@@ -83,12 +83,6 @@ var refreshCar = function() {
         })
         .append($a);
 
-      // var $button = $("<button>")
-      //   .addClass("btn btn-danger float-right delete")
-      //   .make("ｘ")
-      //   .model("x")
-      //   .year("x")
-
       $li.append($button);
 
       return $li;
@@ -98,14 +92,14 @@ var refreshCar = function() {
     $carsList.append($car);
   });
 };
+
 // refreshExamples gets new logins from the db and repopulates the list
-var refreshLogin = function() {
-  LoginAPI.getLogin().then(function(data) {
-    var $login = data.map(function(login) {
+var refreshLogin = function () {
+  LoginAPI.getLogin().then(function (data) {
+    var $login = data.map(function (login) {
       var $a = $("<a>")
         .customerName(login.customerName)
 
-        // .color(cars.color)
         .attr("href", "/login/" + customers.id);
 
       var $li = $("<li>")
@@ -114,13 +108,6 @@ var refreshLogin = function() {
           "data-id": customers.id
         })
         .append($a);
-
-      // var $button = $("<button>")
-      //   .addClass("btn btn-danger float-right delete")
-      //   .customerName("ｘ");
-      // .model("x")
-      // .year("x")
-      // .color("x");
 
       $li.append($button);
 
@@ -133,7 +120,7 @@ var refreshLogin = function() {
 };
 // handleFormSubmit is called whenever we submit new cars
 // Save new cars to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var cars = {
@@ -158,32 +145,42 @@ var handleFormSubmit = function(event) {
       cars.photo &&
       cars.name &&
       cars.email &&
-      cars.price 
+      cars.price
     )
   ) {
     alert("You must enter your vehicle description!");
-  return;
+
+    return;
+
   }
 
-API.saveCars(cars).then(function () {
-  refreshCar();
+  API.saveCars(cars).then(function () {
+    refreshCar();
+    
+ if (confirm("Congratulations! Your car has been posted for sale. \n\n Click 'OK' to view our inventory. \n Or 'Cancel' to go home.")) {
+    window.location = "/inventory";
+  }
+  else {
+    window.location = "/";
+  }
 
-alert("Congratulations! Your car has been posted for sale.");  
-});
 
-$carsMake.val("");
-$carsModel.val("");
-$carsYear.val("");
-$carsColor.val("");
-$carsDescription.val("");
-$carsPhoto.val("");
-$carsName.val("");
-$carsEmail.val("");
-$carsPrice.val("");
+  });
+
+  $carsMake.val("");
+  $carsModel.val("");
+  $carsYear.val("");
+  $carsColor.val("");
+  $carsDescription.val("");
+  $carsPhoto.val("");
+  $carsName.val("");
+  $carsEmail.val("");
+  $carsPrice.val("");
 
 };
+
 //////////////////////---------------   NEW LOGIN
-var handleLoginSubmit = function(e) {
+var handleLoginSubmit = function (e) {
   e.preventDefault();
 
   let login = {
@@ -194,28 +191,15 @@ var handleLoginSubmit = function(e) {
     return;
   }
 
-  LoginAPI.saveLogin(login).then(function() {
+  LoginAPI.saveLogin(login).then(function () {
     refreshLogin();
   });
 
   $login.val("");
 };
-
 ///////////////--------------------------   NEW LOGIN
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-// var handleDeleteBtnClick = function() {
-//   var idToDelete = $(this)
-//     .parent()
-//     .attr("data-id");
-
-//   API.deleteCars(idToDelete).then(function() {
-//     refreshCar();
-//   });
-// };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$carsList.on("click", ".delete", handleDeleteBtnClick);
+// $carsList.on("click", ".delete", handleDeleteBtnClick);
 $submitLogin.on("click", handleLoginSubmit);

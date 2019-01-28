@@ -8,50 +8,52 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="cars-text">Make</label>
-            <input type="text" id="make" class="form-control" aria-describedby="cars-text" placeholder="Lexus, Audi, etc.">
-          </div>
-          <div class="form-group">
-            <label for="cars-text">Model</label>
-            <input type="text" id="model" class="form-control" aria-describedby="cars-text" placeholder="RC, R8, etc. ">
-          </div>
-          <div class="form-group">
-            <label for="cars-text">Year</label>
-            <input type="text" id="year" class="form-control" aria-describedby="cars-text" placeholder="Enter 0000">
-          </div>
-          <div class="form-group">
-            <label for="cars-text">Color</label>
-            <input type="text" id="color" class="form-control" aria-describedby="cars-text" placeholder="Red, white, etc.">
-          </div>
-          <div class="form-group">
-            <label for="cars-description">Description</label>
-            <textarea class="form-control" id="description" aria-describedby="cars-description" placeholder="Enter Car Description"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="cars-text">Price($)</label>
-            <input type="text" id="price" class="form-control" aria-describedby="cars-text" placeholder="Enter 10,000">
-          </div>
-
-          <div class="form-group">
-            <label for="cars-description">Photo</label>
-            <input type="text" id="photo" class="form-control" aria-describedby="cars-text" placeholder="Enter the URL of a photo of your car"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="cars-name">Your Name</label>
-            <input type="text" id="name" class="form-control" aria-describedby="cars-text" placeholder="John Smith"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="cars-description">Your Email</label>
-            <input type="text" id="email" class="form-control" aria-describedby="cars-text" placeholder="example@example.com"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        <form class="clearfix mb-4" action="POST" onsubmit="openModal()" id="myForm"></form>
+        <div class="form-group">
+          <label for="cars-text">Make</label>
+          <input type="text" id="make" class="form-control" aria-describedby="cars-text" placeholder="Lexus, Audi, etc.">
+        </div>
+        <div class="form-group">
+          <label for="cars-text">Model</label>
+          <input type="text" id="model" class="form-control" aria-describedby="cars-text" placeholder="RC, R8, etc. ">
+        </div>
+        <div class="form-group">
+          <label for="cars-text">Year</label>
+          <input type="text" id="year" class="form-control" aria-describedby="cars-text" placeholder="Enter 0000">
+        </div>
+        <div class="form-group">
+          <label for="cars-text">Color</label>
+          <input type="text" id="color" class="form-control" aria-describedby="cars-text" placeholder="Red, white, etc.">
+        </div>
+        <div class="form-group">
+          <label for="cars-description">Description</label>
+          <textarea class="form-control" id="description" aria-describedby="cars-description" placeholder="Enter Car Description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="cars-text">Price ($)</label>
+          <input type="text" id="price" class="form-control" aria-describedby="cars-text" placeholder="Enter 10,000">
+        </div>
+        <div class="form-group">
+          <label for="cars-description">Photo</label>
+          <input type="text" id="photo" class="form-control" aria-describedby="cars-text" placeholder="Enter the URL of a photo of your car"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="cars-name">Your Name</label>
+          <input type="text" id="name" class="form-control" aria-describedby="cars-text" placeholder="John Smith"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="cars-description">Your Email</label>
+          <input type="text" id="email" class="form-control" aria-describedby="cars-text" placeholder="example@example.com"></textarea>
+        </div>
+        <button id="submit" class="btn btn-primary float-right">Submit</button>
+        <br>
+        <br>
+        <Br>
         </form>
       </div>
     </div>
   </div>
 </div>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
