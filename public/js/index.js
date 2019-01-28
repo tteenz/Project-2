@@ -157,7 +157,7 @@ var handleFormSubmit = function (event) {
   API.saveCars(cars).then(function () {
     refreshCar();
     
- if (confirm("Congratulations! Your car has been posted for sale. Do you want to view our inventory?")) {
+ if (confirm("Congratulations! Your car has been posted for sale. \n\n Click 'OK' to view our inventory. \n Or 'Cancel' to go home.")) {
     window.location = "/inventory";
   }
   else {
