@@ -4,6 +4,7 @@
   <hr class="my-4">
 </div>
 
+<<<<<<< HEAD
 <div class="container-fluid">
       <div class="card" style="width: 1050px">
         {{!-- <p><strong>ID</strong>: {{cars.id}}</p> --}}
@@ -20,8 +21,40 @@
         <p><strong>Price($)</strong>: {{cars.price}}</p>
         <p><strong>Photo</strong>:</p>
         <img src="{{cars.photo}}" alt="car" height="250">
+=======
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-4">
+
+          <div class="card">
+            <img class="card-img-top" src="{{cars.photo}}" alt="Car">
+            <div class="card-body">
+              <h5 class="card-title">{{cars.year}} {{cars.make}} {{cars.model}}</h5>
+              <p class="card-text">{{cars.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>COLOR</strong>: {{cars.color}}</li>
+              <li class="list-group-item"><strong>PRICE</strong>: ${{cars.price}}</li>
+              <li class="list-group-item"><strong>SELLER NAME</strong>: {{cars.name}}</li>
+            </ul>
+            <div class="card-footer">
+              <a href="mailto:{{cars.email}}"><strong>CONTACT SELLER</strong></a>
+            </div>
+          </div>
+        </div>
+
+>>>>>>> 978ac4d8d3711dbf3bad00358e3e4e6c6b14008b
         <br>
         </br>
         <a href="/inventory">← Back To Inventory</a>
       </div>
+<<<<<<< HEAD
 </div>
+=======
+    </div>
+  </div>
+</div>
+</div>
+>>>>>>> 978ac4d8d3711dbf3bad00358e3e4e6c6b14008b

@@ -4,6 +4,7 @@
   <hr class="my-4">
 </div>
 
+<<<<<<< HEAD
 <div class="container" id="box1">
 
   <h3>Cars:</h3>
@@ -41,3 +42,33 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
+=======
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <ul id="cars-list" class="list-group">
+
+        <div class="card-columns">
+          <div class="card-deck-wrapper">
+              {{#each car}}
+              <div class="card">
+                <img class="card-img-top" src="{{this.photo}}" alt="Car">
+                <div class="card-body">
+                  <h5 class="card-title">{{this.year}} {{this.make}} {{this.model}}</h5>
+                  <p class="card-text">{{this.description}}</p>
+                </div>
+                <div class="card-footer">
+                  <a href="cars/{{this.id}}" class="btn btn-warning" style="width:100%">See Car</a>
+                </div>
+              </div>
+              {{/each}}
+          </div>
+        </div>
+
+    </div>
+    </ul>
+    <a href="/">← Back To Home</a>
+  </div>
+</div>
+</div>
+>>>>>>> 978ac4d8d3711dbf3bad00358e3e4e6c6b14008b
