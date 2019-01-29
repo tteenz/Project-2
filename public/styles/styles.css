@@ -83,11 +83,9 @@ a {
   .card {
     display: flex;
   }
- 
   .container-fluid {
     display: flex;
   }
-
   #box1.container {
     display: contents;
   }
