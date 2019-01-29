@@ -100,7 +100,6 @@ var refreshLogin = function() {
       var $a = $("<a>")
         .customerName(login.customerName)
 
-        // .color(cars.color)
         .attr("href", "/login/" + customers.id);
 
       var $li = $("<li>")
@@ -162,10 +161,11 @@ var handleFormSubmit = function(event) {
         "Congratulations! Your car has been posted for sale. Click 'Okay' to see your post"
       )
     ) {
-      window.location = "/inventory";
+      window.location = "/login";
     } else {
       window.location = "/inventory";
     }
+
   });
 
   $carsMake.val("");
@@ -180,6 +180,7 @@ var handleFormSubmit = function(event) {
 };
 
 //////////////////////---------------   NEW LOGIN
+
 // var handleLoginSubmit = function (e) {
 //   e.preventDefault();
 

@@ -1,6 +1,6 @@
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4"><a href="/">CarTech</a></h1>
-  <p class="lead">Browse our inventory and see what you like</p>
+  <p class="lead">See all the car's details below and contact the seller.</p>
   <hr class="my-4">
 </div>
 
@@ -10,28 +10,33 @@
     <div class="col-12">
       <div class="card mt-4">
 
-          <div class="card">
-            <img class="card-img-top" src="{{cars.photo}}" alt="Car">
-            <div class="card-body">
-              <h5 class="card-title">{{cars.year}} {{cars.make}} {{cars.model}}</h5>
-              <p class="card-text">{{cars.description}}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>COLOR</strong>: {{cars.color}}</li>
-              <li class="list-group-item"><strong>PRICE</strong>: ${{cars.price}}</li>
-              <li class="list-group-item"><strong>SELLER NAME</strong>: {{cars.name}}</li>
-            </ul>
-            <div class="card-footer">
-              <a href="mailto:{{cars.email}}"><strong>CONTACT SELLER</strong></a>
-            </div>
+        <div class="card">
+          <img class="card-img-top" src="{{cars.photo}}" alt="Car">
+          <div class="card-body">
+            <h5 class="card-title">{{cars.year}} {{cars.make}} {{cars.model}}</h5>
+            <p class="card-text">{{cars.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>COLOR</strong>: {{cars.color}}</li>
+            <li class="list-group-item"><strong>PRICE</strong>: ${{cars.price}}</li>
+            <li class="list-group-item"><strong>SELLER NAME</strong>: {{cars.name}}</li>
+          </ul>
+          <div class="card-footer">
+            <a href="mailto:{{cars.email}}"><strong>CONTACT SELLER</strong></a>
           </div>
         </div>
-
-        <br>
-        </br>
-        <a href="/inventory">← Back To Inventory</a>
       </div>
+
+      <br>
+      <br>
+      <br>
+      <a href="/inventory">← Back To Inventory</a>
+      <br>
+
     </div>
   </div>
 </div>
-</div>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

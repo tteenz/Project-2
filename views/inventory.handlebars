@@ -11,24 +11,29 @@
 
         <div class="card-columns">
           <div class="card-deck-wrapper">
-              {{#each car}}
-              <div class="card">
-                <img class="card-img-top" src="{{this.photo}}" alt="Car">
-                <div class="card-body">
-                  <h5 class="card-title">{{this.year}} {{this.make}} {{this.model}}</h5>
-                  <p class="card-text">{{this.description}}</p>
-                </div>
-                <div class="card-footer">
-                  <a href="cars/{{this.id}}" class="btn btn-warning" style="width:100%">See Car</a>
-                </div>
+            {{#each car}}
+            <div class="card">
+              <img class="card-img-top" src="{{this.photo}}" alt="Car">
+              <div class="card-body">
+                <h5 class="card-title">{{this.year}} {{this.make}} {{this.model}}</h5>
+                <p class="card-text">{{this.description}}</p>
               </div>
-              {{/each}}
+              <div class="card-footer">
+                <a href="cars/{{this.id}}" class="btn btn-warning" style="width:100%">See Car</a>
+              </div>
+            </div>
+            {{/each}}
           </div>
         </div>
 
+      </ul>
     </div>
-    </ul>
     <a href="/">← Back To Home</a>
+    <br>
   </div>
 </div>
-</div>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
