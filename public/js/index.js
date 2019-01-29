@@ -7,7 +7,7 @@ var $carsDescription = $("#description");
 var $carsPhoto = $("#photo");
 var $carsName = $("#name");
 var $carsEmail = $("#email");
-var $carsPrice = $("#price")
+var $carsPrice = $("#price");
 var $submitBtn = $("#submit");
 var $carsList = $("#cars-list");
 let $submitLogin = $("#submit-login");
@@ -16,7 +16,7 @@ var $login = $("#login");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveCars: function (cars) {
+  saveCars: function(cars) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -26,13 +26,13 @@ var API = {
       data: JSON.stringify(cars)
     });
   },
-  getCar: function () {
+  getCar: function() {
     return $.ajax({
       url: "api/car",
       type: "GET"
     });
   },
-  deleteCars: function (id) {
+  deleteCars: function(id) {
     return $.ajax({
       url: "api/car/" + id,
       type: "DELETE"
@@ -42,7 +42,7 @@ var API = {
 
 //////------  NEW FOR LOGIN
 var LoginAPI = {
-  saveLogin: function (logins) {
+  saveLogin: function(logins) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -52,13 +52,13 @@ var LoginAPI = {
       data: JSON.stringify(logins)
     });
   },
-  getLogin: function () {
+  getLogin: function() {
     return $.ajax({
       url: "/login",
       type: "GET"
     });
   },
-  deleteLogin: function (id) {
+  deleteLogin: function(id) {
     return $.ajax({
       url: "/login/" + id,
       type: "DELETE"
@@ -67,9 +67,9 @@ var LoginAPI = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshCar = function () {
-  API.getCar().then(function (data) {
-    var $car = data.map(function (cars) {
+var refreshCar = function() {
+  API.getCar().then(function(data) {
+    var $car = data.map(function(cars) {
       var $a = $("<a>")
         .make(cars.make)
         .model(cars.model)
@@ -94,9 +94,9 @@ var refreshCar = function () {
 };
 
 // refreshExamples gets new logins from the db and repopulates the list
-var refreshLogin = function () {
-  LoginAPI.getLogin().then(function (data) {
-    var $login = data.map(function (login) {
+var refreshLogin = function() {
+  LoginAPI.getLogin().then(function(data) {
+    var $login = data.map(function(login) {
       var $a = $("<a>")
         .customerName(login.customerName)
 
@@ -120,7 +120,7 @@ var refreshLogin = function () {
 };
 // handleFormSubmit is called whenever we submit new cars
 // Save new cars to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var cars = {
@@ -151,19 +151,20 @@ var handleFormSubmit = function (event) {
     alert("You must enter your vehicle description!");
 
     return;
-
   }
 
-  API.saveCars(cars).then(function () {
+  API.saveCars(cars).then(function() {
     refreshCar();
-    
- if (confirm("Congratulations! Your car has been posted for sale. \n\n Click 'OK' to view our inventory. \n Or 'Cancel' to go home.")) {
-    window.location = "/inventory";
-  }
-  else {
-    window.location = "/";
-  }
 
+    if (
+      confirm(
+        "Congratulations! Your car has been posted for sale. Click 'Okay' to see your post"
+      )
+    ) {
+      window.location = "/login";
+    } else {
+      window.location = "/inventory";
+    }
 
   });
 
@@ -176,27 +177,28 @@ var handleFormSubmit = function (event) {
   $carsName.val("");
   $carsEmail.val("");
   $carsPrice.val("");
-
 };
 
 //////////////////////---------------   NEW LOGIN
-var handleLoginSubmit = function (e) {
-  e.preventDefault();
 
-  let login = {
-    customerName: $login.val().trim()
-  };
-  if (!login.customerName) {
-    alert("You must enter a name");
-    return;
-  }
+// var handleLoginSubmit = function (e) {
+//   e.preventDefault();
 
-  LoginAPI.saveLogin(login).then(function () {
-    refreshLogin();
-  });
+//   let login = {
+//     customerName: $login.val().trim()
+//   };
+//   if (!login.customerName) {
+//     alert("You must enter a name");
+//     return;
+//   }
 
-  $login.val("");
-};
+//   LoginAPI.saveLogin(login).then(function () {
+//     refreshLogin();
+//   });
+
+//   $login.val("");
+// };
+
 ///////////////--------------------------   NEW LOGIN
 
 // Add event listeners to the submit and delete buttons
