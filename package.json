@@ -12,20 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-<<<<<<< HEAD
     "cookie-parser": "^1.4.3",
     "express-session": "^1.15.6",
     "jquery-confirm": "^3.3.3",
-=======
     "body-parser": "^1.18.3",
->>>>>>> 55218c1a23d540c9b3d8fc9155f2fe9838b97541
     "bootstrap": "^3.4.0",
-    "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.6",
-    "jquery-confirm": "^3.3.3",
     "masonry-layout": "^4.2.2",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
