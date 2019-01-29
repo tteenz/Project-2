@@ -179,28 +179,6 @@ var handleFormSubmit = function(event) {
   $carsPrice.val("");
 };
 
-//////////////////////---------------   NEW LOGIN
-
-// var handleLoginSubmit = function (e) {
-//   e.preventDefault();
-
-//   let login = {
-//     customerName: $login.val().trim()
-//   };
-//   if (!login.customerName) {
-//     alert("You must enter a name");
-//     return;
-//   }
-
-//   LoginAPI.saveLogin(login).then(function () {
-//     refreshLogin();
-//   });
-
-//   $login.val("");
-// };
-
-///////////////--------------------------   NEW LOGIN
-
 $(document).ready(function(){
   $(window).scroll(function () {
          if ($(this).scrollTop() > 50) {
